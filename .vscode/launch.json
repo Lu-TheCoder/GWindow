@@ -1,0 +1,19 @@
+{
+    "configurations": [
+        {
+            "name": "Launch Sandbox",
+            "type": "cppdbg",
+            "request": "launch",
+            "stopAtEntry": false,
+            "cwd": "${workspaceFolder}/bin/",
+            "environment": [],
+            "program": "${workspaceRoot}/bin/app",
+            "osx": {
+                "MIMode": "lldb",
+                "targetArchitecture": "arm64",
+                "externalConsole": false,
+            }
+        }
+    ],
+    "version": "0.2.0"
+}

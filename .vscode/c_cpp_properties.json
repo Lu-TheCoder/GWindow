@@ -1,0 +1,24 @@
+{
+    "configurations": [
+        {
+            "name": "Mac",
+            "includePath": [
+                "${workspaceFolder}/GWindow/src**",
+                "${VULKAN_SDK}/include"
+            ],
+            "defines": [
+                "_DEBUG",
+                "GEXPORT"
+            ],
+            "compilerPath": "/usr/bin/clang",
+            "cStandard": "c23",
+            // "cppStandard": "c++23",
+            "intelliSenseMode": "clang-arm64",
+            "macFrameworkPath": [
+                "/System/Library/Frameworks",
+                "/Library/Frameworks"
+            ]
+        }
+    ],
+    "version": 4
+}
