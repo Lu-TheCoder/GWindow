@@ -28,4 +28,4 @@ G_API void GWindow_destroy(GWindow* window);
 G_API void GWindow_poll_events(void);
 G_API bool GWindow_should_close(GWindow* window);
 G_API void GWindow_setLayer_device(GWindow* window, id<MTLDevice> device);
-G_API void GWindow_getRequiredVulkanExtensions(u32 out_count, const char** pExtensions);
+G_API void GWindow_getRequiredVulkanExtensions(u32* out_count, const char** pExtensions);

@@ -107,8 +107,8 @@ bool GWindow_should_close(GWindow* window){
     return window->should_close;
 }
 
-G_API void GWindow_getRequiredVulkanExtensions(u32 out_count, const char** pExtensions){
-    *count = 3;
+G_API void GWindow_getRequiredVulkanExtensions(u32* out_count, const char** pExtensions){
+    *out_count = 3;
 	if(pExtensions)
 	{
 		pExtensions[0] = "VK_KHR_surface";
