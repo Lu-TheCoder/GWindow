@@ -106,3 +106,14 @@ void GWindow_destroy(GWindow* window){
 bool GWindow_should_close(GWindow* window){
     return window->should_close;
 }
+
+G_API void GWindow_getRequiredVulkanExtensions(u32 out_count, const char** pExtensions){
+    *count = 3;
+	if(pExtensions)
+	{
+		pExtensions[0] = "VK_KHR_surface";
+		pExtensions[1] = "VK_EXT_metal_surface";
+        //TODO: add the extension required for macos
+        // pExtensions[2] = "";
+	}
+}
