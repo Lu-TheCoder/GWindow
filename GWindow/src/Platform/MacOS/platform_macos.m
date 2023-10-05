@@ -100,7 +100,7 @@ void GWindow_poll_events(void){
 }
 
 void GWindow_destroy(GWindow* window){
-    
+    free(window);
 }
 
 bool GWindow_should_close(GWindow* window){
