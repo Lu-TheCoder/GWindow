@@ -35,3 +35,7 @@ then
 echo "error:"$errorlevel | sed -e "s/error/${txtred}error${txtrst}/g" && exit
 fi
 
+
+#Sometimes vscode doesnt have permission to run shell scripts so use this line to 
+#enable permission on a shell script of your choice (NB: use in the terminal) not in this file
+#chmod +x your-script.sh

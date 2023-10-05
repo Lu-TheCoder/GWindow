@@ -1,6 +1,7 @@
 #import "Platform/platform.h"
 #import "ApplicationDelegate.h"
 #import "WindowDelegate.h"
+#import "ContentView.h"
 
 @class ApplicationDelegate;
 @class WindowDelegate;
@@ -34,34 +35,38 @@ GWindow* GWindow_create(int width, int height, const char* title, int flags){
                                                      styleMask:windowStyleMask
                                                        backing:NSBackingStoreBuffered
                                                          defer:NO];
+
+        ContentView* cView = [[ContentView alloc] initWithHandle:window Frame:initialFrame];
+        
         
         [window->window setLevel:NSNormalWindowLevel];
         // [window->window setBackgroundColor: NSColor.redColor];
         [window->window setTitle: @(title)];
         [window->window setDelegate:window->window_delegate];
-        [window->window.contentView setWantsLayer: YES];
-        [window->window setAcceptsMouseMovedEvents: YES];
-        [window->window setRestorable:NO];
-        [window->window makeKeyAndOrderFront: nil];
-        
-        window->layer = [CAMetalLayer layer];
-        
-        NSLog(@"Width: %f", window->window.contentView.frame.size.height);
-        
-//        window->layer.frame = window->window.contentView.frame;
+
+         window->layer = [CAMetalLayer layer];
+        // [window->layer setDevice:MTLCreateSystemDefaultDevice()];
+        window->layer.frame = window->window.contentView.frame;
         window->layer.bounds = window->window.contentView.bounds;
         window->layer.drawableSize = [window->window.contentView convertSizeToBacking:window->window.contentView.bounds.size];
         window->layer.contentsScale = window->window.contentView.window.backingScaleFactor;
         
         window->layer.pixelFormat = MTLPixelFormatRGBA8Unorm;
         
-//        [window->layer setDevice:MTLCreateSystemDefaultDevice()];
+        [window->layer setOpaque: YES];
+        
+        [cView setWantsLayer:YES];
+        [cView setLayer:window->layer];
+        
+        [window->window setContentView: cView];
         [window->window.contentView setLayerContentsRedrawPolicy:NSViewLayerContentsRedrawDuringViewResize];
         
-        [window->window.contentView setLayer: window->layer];
-
         
-        [window->layer setOpaque: YES];
+        [window->window setAcceptsMouseMovedEvents: YES];
+        [window->window setRestorable:NO];
+        [window->window makeKeyAndOrderFront: nil];
+        
+        NSLog(@"Width: %f", window->window.contentView.frame.size.height);
         
         [NSApp finishLaunching];
         
