@@ -108,11 +108,17 @@ bool GWindow_should_close(GWindow* window){
 }
 
 G_API void GWindow_getRequiredVulkanExtensions(u32* out_count, const char** pExtensions){
+    //HACK: theres a better way of doing this
+    #ifdef _DEBUG
+    *out_count = 4;
+    #else
     *out_count = 3;
+    #endif
 	if(pExtensions)
 	{
 		pExtensions[0] = "VK_KHR_surface";
 		pExtensions[1] = "VK_EXT_metal_surface";
+        pExtensions[2] = "VK_KHR_portability_enumeration";
         //TODO: add the extension required for macos
         // pExtensions[2] = "";
 	}
