@@ -4,6 +4,7 @@
 
 int main() {
 
+
     //Creates a Graphics Window Instance with the specified properties
     GWindow* window = GWindow_create(800, 600, "Lu's Graphics Engine (Metal)", 0);
 
@@ -20,6 +21,7 @@ int main() {
 
     //deallocates resources
     GWindow_destroy(window);
+
     
     return 0;
 }

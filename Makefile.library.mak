@@ -14,7 +14,7 @@ else
 	# OSX
 	BUILD_PLATFORM := macos
 	EXTENSION := .dylib
-	COMPILER_FLAGS := -Wall -Werror -Wvla -Wgnu-folding-constant -Wno-missing-braces -fdeclspec -fPIC -ObjC -fobjc-arc
+	COMPILER_FLAGS := -std=c2x -Wall -Werror -Wvla -Wgnu-folding-constant -Wno-missing-braces -fdeclspec -fPIC -ObjC -fobjc-arc
 	INCLUDE_FLAGS := -I./$(ASSEMBLY)/src 
 	LINKER_FLAGS := -shared -dynamiclib -install_name @rpath/lib$(ASSEMBLY).dylib -lobjc -framework QuartzCore -framework Cocoa -L./$(BUILD_DIR)
 	# .c and .m files
